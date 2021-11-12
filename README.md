@@ -29,6 +29,13 @@ The final level of validation is usually performed by the database. Often with `
 
 -----
 ## Challenge
+You are maintaining a database for an application that lets users upload record-breaking swim records, including the swimmer's name, their team's name, the type of race, and when they broke the record. Unfortunately, many users are submitting records with missing or incorrect data:
+- Some records are missing the swimmers name, or their team's name
+- Some records are submitted for unofficial races (the race is too short, or an illegal swim stroke was used)
+- Some records have impossible dates (the record was broken in the future, or before the original records was set)
+Use Django validators to ensure that bad data cannot be inserted into the database, and that a meaningful error message is generated that briefly describes why the data could not be inserted into the database. Read the tests in `tests.py` to see the exact requirements.
+
+
 This challenge will have you exploring the Django docs (and any other resources you find online) to resolve some errors and ultimately make the tests pass. We are working with one model. The attributes are written for you and commented out - they are also incomplete. You'll have to add some settings to what is there to get the first few tests to pass.
 
 The last batch of tests will require you to write your own validations. 

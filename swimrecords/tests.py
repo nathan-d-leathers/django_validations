@@ -12,6 +12,7 @@ class SwimRecordTestCase(TestCase):
         """validates presence of first_name"""
         try:
             self.record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue('This field cannot be blank.' in e.message_dict['first_name'])
 
