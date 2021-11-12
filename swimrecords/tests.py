@@ -20,6 +20,7 @@ class SwimRecordTestCase(TestCase):
         """validates presence of last_name"""
         try:
             self.record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue('This field cannot be blank.' in e.message_dict['last_name'])
 
@@ -27,6 +28,7 @@ class SwimRecordTestCase(TestCase):
         """validates presence of team_name"""
         try:
             self.record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue('This field cannot be blank.' in e.message_dict['team_name'])
 
@@ -34,6 +36,7 @@ class SwimRecordTestCase(TestCase):
         """validates presence of relay"""
         try:
             self.record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue("'None' value must be either True or False." in e.message_dict['relay'])
 
@@ -42,6 +45,7 @@ class SwimRecordTestCase(TestCase):
         stroke_record = SwimRecord(stroke='doggie paddle')
         try:
             stroke_record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue("doggie paddle is not a valid stroke" in e.message_dict['stroke'])
 
@@ -50,6 +54,7 @@ class SwimRecordTestCase(TestCase):
         distance_record = SwimRecord(distance=20)
         try:
             distance_record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue("Ensure this value is greater than or equal to 50." in e.message_dict['distance'])
 
@@ -59,6 +64,7 @@ class SwimRecordTestCase(TestCase):
         record = SwimRecord(record_date=bad_date)
         try:
             record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue("Can't set record in the future." in e.message_dict['record_date'])
 
@@ -68,5 +74,6 @@ class SwimRecordTestCase(TestCase):
         record.save()
         try:
             record.full_clean()
+            raise Exception("full_clean should throw a validation error")
         except ValidationError as e:
             self.assertTrue("Can't break record before record was set." in e.message_dict['record_broken_date'])
