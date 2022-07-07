@@ -79,8 +79,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_validations',
-        'HOST': 'localhost',
-        'PORT': '',
     }
 }
 
